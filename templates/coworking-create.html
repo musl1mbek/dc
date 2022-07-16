@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Orbiter is a bootstrap minimal & clean admin template">
+    <meta name="keywords" content="admin, admin panel, admin template, admin dashboard, responsive, bootstrap 4, ui kits, ecommerce, web app, crm, cms, html, sass support, scss">
+    <meta name="author" content="Themesbox">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Orbiter - Bootstrap Minimal & Clean Admin Template</title>
+    <!-- Fevicon -->
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+    <!-- Start css -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'assets/css/icons.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" type="text/css">
+    <!-- End css -->
+</head>
+<body class="vertical-layout">
+        <!-- Start Containerbar -->
+    <div id="containerbar" class="containerbar authenticate-bg">
+        <!-- Start Container -->
+        <div class="container">
+            <div class="auth-box register-box">
+                <!-- Start row -->
+                <div class="row no-gutters align-items-center justify-content-center">
+                    <!-- Start col -->
+                    <div class="col-md-6 col-lg-5">
+                        <!-- Start Auth Box -->
+                        <div class="auth-box-right">
+                            <div class="card">
+                                <div class="card-body">
+                                    <form action="{% url 'coworking-create' %}" method="post" enctype="multipart/form-data" class="my_unique_form">
+                                        {% csrf_token %}
+                                        <select name="image" multiple class="my_unique_select">
+                                            {% for i in coimages %}
+                                            <option value="{{i.id}}" style="background-image: url({{i.image.url}}); background-repeat: no-repeat; height: 200px; width: 270px; background-size: cover; margin-bottom: 10px; color: red;">{{i.id}}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <span><input name="text" t ype="text" placeholder="Text"  class="input_unique" required></span><hr width="100%">
+                                        <span><input name="text_en" type="text" placeholder="Text En"  class="input_unique" required></span><hr width="100%">
+                                        <span><input name="text_ru" type="text" placeholder="Text Ru"  class="input_unique" required></span><hr width="100%">
+                                        <div class="my_btns">
+                                            <button class="my_uniquebtn">Save</button>
+                                        </div>
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Auth Box -->
+                    </div>
+                    <!-- End col -->
+                </div>
+                <!-- End row -->
+            </div>
+        </div>
+        <!-- End Container -->
+    </div>
+    <!-- End Containerbar -->
+    <!-- Start js -->        
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.min.js' %}"></script>  
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/modernizr.min.js' %}"></script>
+    <script src="{% static 'assets/js/detect.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.slimscroll.js' %}"></script>
+    <!-- End js -->
+</body>
+</html>
